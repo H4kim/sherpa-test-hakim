@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.pageContentContainer {
+  display: flex;
+  background-color: rgb(188, 136, 240);
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+.menuContainer {
+  background-color: rosybrown;
+  flex: 1;
+}
+
+.contentContainer {
+  background-color: rgb(70, 32, 32);
+  flex: 4;
+}
