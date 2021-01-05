@@ -4,7 +4,8 @@ import TopBar from '../../Components/TopBar/TopBar'
 import Event from '../../Components/Event/Event'
 import Menu from '../../Components/Menu/Menu'
 import PrimaryButton from '../../Components/Buttons/PrimaryButton'
-import PrimaryTitle from '../../Components/PrimaryTitle/PrimaryTitle'
+import PrimaryTitle from '../../Components/Titles/PrimaryTitle'
+import Meetings from '../../Components/Meetings/'
 
 const Home = () => {
     return (
@@ -18,6 +19,7 @@ const Home = () => {
                 <div className={classes.contentContainer}>
                     <PrimaryButton  customStyle={{padding:'.5rem 5rem', marginBottom:'3rem'}}/>
                     <PrimaryTitle title='Featured Meetings'/>
+                    <Meetings />
                 </div>
             </div>
         </div>
