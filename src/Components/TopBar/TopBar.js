@@ -1,7 +1,7 @@
 // import classes from './TopBar.module.css';
 import React from 'react'
 
-const TopBar = ({title}) => {
+const TopBar = ({title,clicked}) => {
     const styles = {
         container : {
             backgroundColor: '#eaeae8',
@@ -9,7 +9,8 @@ const TopBar = ({title}) => {
             height:'2.2rem',
             display:'flex',
             alignItems:'center',
-            justifyContent:'center'
+            justifyContent:'center',
+            cursor:'pointer'
         },
         title : {
             fontSize : '1.2rem',
@@ -17,7 +18,7 @@ const TopBar = ({title}) => {
         }
     }
     return (
-        <div style={styles.container}>
+        <div style={styles.container} onClick={clicked}>
             <h4 style={styles.title}>{title}</h4>
         </div>
     )
