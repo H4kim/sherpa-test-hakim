@@ -3,11 +3,11 @@ import { Button } from 'react-bootstrap';
 // import { keyframes,css } from "styled-components";
 // import { motion } from "framer-motion"
 
-const Event = ({logo ,event, details,animated,clicked,selectedEvent,data,page}) => {
+const Event = ({data,animated,clicked,selectedEvent,page}) => {
     const isSelected = selectedEvent === data.id
     const styles = {
         container : {
-            width : '10%',
+            width : '20%',
             height : '15rem',
             backgroundColor :'#FDFDFB',
             borderRadius:'15%',
@@ -32,10 +32,10 @@ const Event = ({logo ,event, details,animated,clicked,selectedEvent,data,page}) 
         }
     }
     return (
-        <div style={{...styles.container,...styles.animated}} onClick={() => clicked()} >
-            <img src='https://tt-sherpa-backend.herokuapp.com/images/event1.png' alt='test' style={styles.logo} />
-            <Button variant="primary" style={styles.eventTitle}>Event Name</Button>
-            <p>Details here</p>
+        <div style={{...styles.container,...styles.animated}}  >
+            <img src={`https://tt-sherpa-backend.herokuapp.com${data.logo}`} alt='test' style={styles.logo} />
+            <Button variant="primary" style={styles.eventTitle}>{data.title}</Button>
+            <p>{data.detail}</p>
         </div>
     )
 }

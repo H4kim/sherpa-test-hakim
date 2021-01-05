@@ -21,25 +21,17 @@ const Events = (props) => {
         },
     }
 
-    const [events, setEvents] = useState([])
-    const [selectedEvent, setSelectedEvent] = useState()
+    // const [events, setEvents] = useState([])
+    // const [selectedEvent, setSelectedEvent] = useState()
 
-    useEffect(() => {
-        Axios.get('https://tt-sherpa-backend.herokuapp.com/events').then(data => {
-            setEvents(data.data)
-        }).catch(e => {
-            console.log(e)
-        })
-    }, [])
 
-    const eventClickHandler = (id) => {
-        setSelectedEvent(id)
-        console.log(id)
-    }
+    // const eventClickHandler = (id) => {
+    //     setSelectedEvent(id)
+    // }
 
     const renderEvents = () => {
-        return events.map(cur => {
-            return <Event key={cur.id} page={props.page} selectedEvent={selectedEvent} data={cur} clicked={() => eventClickHandler(cur.id)}  />
+        return props.eventsList.map(cur => {
+            return <Event key={cur.id} page={props.page}  data={cur}   />
         })
     }
 
