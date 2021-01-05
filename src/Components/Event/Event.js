@@ -4,8 +4,9 @@ import { Button } from 'react-bootstrap';
 const Event = ({logo ,event, details}) => {
     const styles = {
         container : {
-            width : '80%',
+            width : '70%',
             height : '15rem',
+            marginBottom:'1rem',
             backgroundColor :'#FDFDFB',
             borderRadius:'15%',
             display:'flex',
