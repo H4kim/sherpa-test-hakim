@@ -1,4 +1,4 @@
-import classes from './TopBar.module.css';
+// import classes from './TopBar.module.css';
 import React from 'react'
 
 const TopBar = ({title}) => {
@@ -6,7 +6,6 @@ const TopBar = ({title}) => {
         container : {
             backgroundColor: '#eaeae8',
             textAlign: 'center',
-            padding: '0',
             height:'2.2rem',
             display:'flex',
             alignItems:'center',
@@ -19,7 +18,7 @@ const TopBar = ({title}) => {
     }
     return (
         <div style={styles.container}>
-            <p style={styles.title}>{title}</p>
+            <h4 style={styles.title}>{title}</h4>
         </div>
     )
 }

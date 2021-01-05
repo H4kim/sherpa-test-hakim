@@ -1,6 +1,7 @@
 import classes from './Home.module.css'
 import React from 'react'
 import TopBar from '../../Components/TopBar/TopBar'
+import Event from '../../Components/Event/Event'
 
 const Home = () => {
     return (
@@ -8,7 +9,7 @@ const Home = () => {
             <TopBar title={'MarketPlace'} />
             <div className={classes.pageContentContainer}>
                 <div className={classes.menuContainer}>
-                    Menu list
+                    <Event />
                 </div>
                 <div className={classes.contentContainer}>
                     Content
