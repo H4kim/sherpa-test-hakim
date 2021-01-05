@@ -3,6 +3,7 @@ import React from 'react'
 import TopBar from '../../Components/TopBar/TopBar'
 import Event from '../../Components/Event/Event'
 import Menu from '../../Components/Menu/Menu'
+import PrimaryButton from '../../Components/Buttons/PrimaryButton'
 
 const Home = () => {
     return (
@@ -14,7 +15,7 @@ const Home = () => {
                     <Menu />
                 </div>
                 <div className={classes.contentContainer}>
-                    Content
+                    <PrimaryButton  customStyle={{padding:'.5rem 5rem'}}/>
                 </div>
             </div>
         </div>

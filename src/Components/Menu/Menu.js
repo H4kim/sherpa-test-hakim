@@ -1,6 +1,5 @@
-import classes from './Menu.module.css';
 import React from 'react'
-import { Button } from 'react-bootstrap';
+import PrimaryButton from '../Buttons/PrimaryButton';
 
 const Menu = ({menuItems}) => {
     const styles = {
@@ -25,18 +24,18 @@ const Menu = ({menuItems}) => {
             margin:'0',
         },
         singleItem : {
-           width:'70%',
-           borderRadius:'20px'
-           
+            width:'70%',
+            borderRadius:'20px',
+            marginBottom:'1rem',
         }
     }
     return (
         <div style={styles.container}>
             <ul style={styles.itemsContainer}>
-                <li ><Button className={'mb-2 btn btn-light'} style={styles.singleItem}>Test</Button></li>
-                <li ><Button className={'mb-2 btn btn-light'} style={styles.singleItem}>Test</Button></li>
-                <li ><Button className={'mb-2 btn btn-light'} style={styles.singleItem}>Test</Button></li>
-                <li ><Button className={'mb-2 btn btn-light'} style={styles.singleItem}>Test</Button></li>
+                <li ><PrimaryButton customStyle={styles.singleItem}/></li>
+                <li ><PrimaryButton customStyle={styles.singleItem}/></li>
+                <li ><PrimaryButton customStyle={styles.singleItem}/></li>
+                <li ><PrimaryButton customStyle={styles.singleItem}/></li>
             </ul>
         </div>
     )
