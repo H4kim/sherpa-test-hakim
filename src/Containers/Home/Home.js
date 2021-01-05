@@ -13,8 +13,6 @@ const Home = () => {
     const [selectedEvent,setSelectedEvent] = useState('') 
     const [page,setPage] = useState('main') //main or events
 
-
-    
     const TopBarClickHandler = () => {
         setAnimate('first')
         setSelectedEvent('') //set it to the selected event by default the first one from the api

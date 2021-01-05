@@ -6,7 +6,7 @@ const Events = (props) => {
         container: {
             display : 'flex',
             flexWrap:'wrap',
-            width:'100%',
+            width:'70%',
             height:'100%',
             alignItems:'center',
             justifyContent:'space-around',
@@ -22,7 +22,7 @@ const Events = (props) => {
     }
 
     const [events, setEvents] = useState([])
-    const [selectedEvent, setSelectedEvent] = useState(1)
+    const [selectedEvent, setSelectedEvent] = useState()
 
     useEffect(() => {
         Axios.get('https://tt-sherpa-backend.herokuapp.com/events').then(data => {
