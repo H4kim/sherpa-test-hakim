@@ -6,28 +6,28 @@ import Menu from '../../Components/Menu/Menu'
 import PrimaryTitle from '../../Components/Titles/PrimaryTitle'
 import Meetings from '../../Components/Meetings/'
 import AnimatedButton from '../../Components/Buttons/AnimatedButton'
+import Hero from '../../Components/Hero/Hero'
 
 const Home = () => {
-    // const [page,setPage] = useState('main')
     const [animate,setAnimate] = useState('') 
     
     const TopBarClickHandler = () => {
-        // setPage('event') 
         setAnimate('first')
     }
 
     return (
         <div className={classes.container}>
-            <TopBar title={'MarketPlace'} clicked={() => TopBarClickHandler() } />
+            <TopBar title={'MarketPlace'} animated={animate} clicked={() => TopBarClickHandler() } />
+            <Hero animated={animate}/>
             <div className={classes.pageContentContainer}>
                 <div className={classes.menuContainer}>
                     <Event />
                     <Menu />
                 </div>
                 <div className={classes.contentContainer}>
-                    <AnimatedButton  animate={animate}/>
+                    <AnimatedButton  animated={animate}/>
                     <PrimaryTitle title='Featured Meetings'/>
-                    <Meetings />
+                    <Meetings animated={animate} />
                 </div>
             </div>
         </div>

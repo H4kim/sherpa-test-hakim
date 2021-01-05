@@ -11,6 +11,7 @@ const Menu = ({menuItems}) => {
             alignItems:'center',
             justifyContent:'center',
             padding:'3rem 0',
+            zIndex:'10'
         },
         itemsContainer: {
             listStyle:'none',
