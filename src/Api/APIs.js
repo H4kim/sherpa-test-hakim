@@ -1,4 +1,3 @@
-import { Children } from 'react';
 import {Axios} from '../helpers/axios';
 import {GET_EVENTS_LIST , GET_MENU_LIST} from '../Utils/Constants'
 
@@ -11,11 +10,32 @@ export const getEventList = async () => {
     }
 } 
 
-export const getEvent = (id) => {
-    Axios.get(`${GET_EVENTS_LIST}/id`).then(data => {
-        console.log(data)
-        // return data.data
-    }).catch(e => {
-
-    })
+export const getEvent = async (id) => {
+    try {
+        const data = await Axios.get(`${GET_EVENTS_LIST}/${id}`)
+        return data.data
+    }catch(error) {
+        console.log(error)
+    }
 } 
+
+export const getEventMeetings = async (id) => {
+    try {
+        const data = await Axios.get(`${GET_EVENTS_LIST}/${id}/meetings`)
+        return data.data
+    }catch(error) {
+        console.log(error)
+    }
+} 
+
+
+export const getMenuList = async (context) => {
+    try {
+        const data = await Axios.get(`${GET_MENU_LIST}/${context}`)
+        return data.data
+    } catch(error){
+        console.log(error)
+    }
+}
+
+

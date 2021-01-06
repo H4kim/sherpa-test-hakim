@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Event from './Event'
-import Axios from 'axios'
 const Events = (props) => {
     const styles = {
         container: {
@@ -20,14 +19,6 @@ const Events = (props) => {
             margin:'auto',
         },
     }
-
-    // const [events, setEvents] = useState([])
-    // const [selectedEvent, setSelectedEvent] = useState()
-
-
-    // const eventClickHandler = (id) => {
-    //     setSelectedEvent(id)
-    // }
 
     const renderEvents = () => {
         return props.eventsList.map(cur => {

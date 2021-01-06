@@ -28,7 +28,7 @@ const Event = ({data,animated,clicked,selectedEvent,page}) => {
         },
         animated :{
             // transform: isSelected ? 'translate(-350px,-300px)' : page ==='events' ? 'translate(0,0)' : null,
-            opacity: isSelected && page === 'main' ? '1' :  page ==='events' ? '1' :'0',
+            opacity: isSelected && page === 'home' ? '1' :  page ==='events' ? '1' :'0',
         }
     }
     return (

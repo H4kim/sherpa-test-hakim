@@ -7,20 +7,24 @@ import PrimaryTitle from '../../Components/Titles/PrimaryTitle'
 import Meetings from '../../Components/Meetings/'
 import AnimatedButton from '../../Components/Buttons/AnimatedButton'
 import Hero from '../../Components/Hero/Hero'
-import { getEventList } from '../../Api/APIs'
+import { getEventList, getEventMeetings, getMenuList } from '../../Api/APIs'
 
 const Home = () => {
     const [eventsList, setEventsList] = useState([])
+    const [menuList, setMenuList] = useState([])
+    // const [eventMeetings, setEventMeetings] = useState([])
     const [animate,setAnimate] = useState('') 
     const [selectedEvent,setSelectedEvent] = useState('') 
-    const [page,setPage] = useState('main') //main or events
+    const [page,setPage] = useState('home') //home or events
 
     useEffect(() => {   
         getData()
-    },[])
-
+    },[])   
+    
     const getData = async () => {
         setEventsList(await getEventList()) 
+        setMenuList(await getMenuList(page))
+        // setEventMeetings(await getEventMeetings(1))
     }
     
     const TopBarClickHandler = () => {
@@ -35,7 +39,7 @@ const Home = () => {
             <Hero animated={animate}/>
             <div className={classes.pageContentContainer}>
                 <div className={classes.menuContainer}>
-                    <Menu />
+                    <Menu  menuList={menuList}/>
                 </div>
                 <div className={classes.contentContainer}>
                     <AnimatedButton  animated={animate}/>

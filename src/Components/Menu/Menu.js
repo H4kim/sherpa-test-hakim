@@ -1,7 +1,7 @@
 import React from 'react'
 import PrimaryButton from '../Buttons/PrimaryButton';
 
-const Menu = ({menuItems}) => {
+const Menu = ({menuList}) => {
     const styles = {
         container : {
             width : '70%',
@@ -30,13 +30,17 @@ const Menu = ({menuItems}) => {
             marginBottom:'1rem',
         }
     }
+
+    const renderListItems = () => {
+        return menuList.map((cur,i) => {
+            return  <li key={i}><PrimaryButton text={cur} customStyle={styles.singleItem}/></li>
+
+        })
+    }
     return (
         <div style={styles.container}>
             <ul style={styles.itemsContainer}>
-                <li ><PrimaryButton customStyle={styles.singleItem}/></li>
-                <li ><PrimaryButton customStyle={styles.singleItem}/></li>
-                <li ><PrimaryButton customStyle={styles.singleItem}/></li>
-                <li ><PrimaryButton customStyle={styles.singleItem}/></li>
+                {renderListItems()}
             </ul>
         </div>
     )

@@ -10,7 +10,7 @@ const PrimaryButton = (props) => {
         },
     }
     return (
-        <Button className={"btn btn-light round"} style={{...styles.container ,...props.customStyle}}>Details</Button>
+        <Button className={"btn btn-light round"} style={{...styles.container ,...props.customStyle}}>{props.text}</Button>
     )
 }
 
