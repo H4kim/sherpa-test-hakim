@@ -16,7 +16,7 @@ const Meeting = ({content}) => {
     }
     return (
         <div style={styles.container}>
-            <p>Event : {content.event_id}</p>
+            <p>From Event : {content.event_id}</p>
             <p>{content.description}</p>
         </div>
     )

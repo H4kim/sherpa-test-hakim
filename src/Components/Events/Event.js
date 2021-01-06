@@ -15,7 +15,7 @@ const Event = ({data,animated,clicked,selectedEvent,page}) => {
             justifyContent:'center',
             alignItems:'center',
             zIndex:'10',
-            transition:'all 1s linear'
+            transition:'all .4s linear'
         },
         logo : {
             width:'7rem',
