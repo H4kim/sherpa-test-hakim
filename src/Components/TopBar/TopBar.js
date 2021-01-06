@@ -1,7 +1,10 @@
-// import classes from './TopBar.module.css';
-import React from 'react'
+import React,{useContext} from 'react'
+import {GlobalContext} from '../../Context/GlobalContext'
 
-const TopBar = ({title,clicked,animated}) => {
+const TopBar = ({title,clicked }) => {
+    const GlobalCont = useContext(GlobalContext)
+    const animated = GlobalCont.values.animate
+
     const animateDisplay = animated === 'first' 
     const animateHide = animated === 'second' 
     const styles = {
@@ -28,8 +31,12 @@ const TopBar = ({title,clicked,animated}) => {
             transform: animateDisplay ? 'scaleY(.5)' : animateHide ? 'scaleY(1)' : null,
         }
     }
+
+    const TopBarClickHandler = () => {
+        GlobalCont.updateValues({animate :  'first' , page : 'events' })
+    }
     return (
-        <div style={{...styles.container,...styles.animated}} onClick={clicked}>
+        <div style={{...styles.container,...styles.animated}} onClick={() => TopBarClickHandler()}>
             <h4 style={{...styles.title,...styles.textAnimated}}>{title}</h4>
         </div>
     )

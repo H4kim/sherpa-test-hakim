@@ -1,7 +1,12 @@
-import React from 'react'
+// import classes from './TopBar.module.css';
+import React,{useContext} from 'react'
+import {GlobalContext} from '../../Context/GlobalContext'
 import { Button } from 'react-bootstrap';
 
-const AnimatedButton = ({animated}) => {
+const AnimatedButton = () => {
+    const GlobalCont = useContext(GlobalContext)
+    const animated = GlobalCont.values.animate
+    console.log(animated)
     const AnimateLeft = animated === 'first'
     const AnimateRight = animated === 'second'
 

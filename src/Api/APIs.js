@@ -4,7 +4,7 @@ import {GET_EVENTS_LIST , GET_MENU_LIST} from '../Utils/Constants'
 export const getEventList = async () => {
     try {
         const data = await Axios.get(`${GET_EVENTS_LIST}`)
-        return data.data
+        return  data.data
     }catch(error) {
         console.log(error)
     }

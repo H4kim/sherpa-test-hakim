@@ -1,7 +1,11 @@
-import React from 'react'
+import React,{useContext} from 'react'
+import {GlobalContext} from '../../Context/GlobalContext'
 import PrimaryButton from '../Buttons/PrimaryButton';
 
-const Menu = ({menuList}) => {
+const Menu = () => {
+    const GlobalCont = useContext(GlobalContext)
+    const menuList = GlobalCont.values.menuList
+    
     const styles = {
         container : {
             width : '70%',

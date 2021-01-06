@@ -1,7 +1,6 @@
 import React from 'react'
 import { Button } from 'react-bootstrap';
-// import { keyframes,css } from "styled-components";
-// import { motion } from "framer-motion"
+
 
 const Event = ({data,animated,clicked,selectedEvent,page}) => {
     const isSelected = selectedEvent === data.id
@@ -32,7 +31,7 @@ const Event = ({data,animated,clicked,selectedEvent,page}) => {
         }
     }
     return (
-        <div style={{...styles.container,...styles.animated}}  >
+        <div style={{...styles.container,...styles.animated}} onClick={clicked}  >
             <img src={`https://tt-sherpa-backend.herokuapp.com${data.logo}`} alt='test' style={styles.logo} />
             <Button variant="primary" style={styles.eventTitle}>{data.title}</Button>
             <p>{data.detail}</p>

@@ -1,6 +1,10 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import {GlobalContext} from '../../Context/GlobalContext'
 
-const Hero = ({animated}) => {
+const Hero = () => {
+    const GlobalCont = useContext(GlobalContext)
+    const animated = GlobalCont.values.animate
+    
     const animateDisplay = animated === 'first' 
     const animateHide = animated === 'second' 
     const styles={

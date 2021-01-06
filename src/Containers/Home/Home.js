@@ -1,5 +1,5 @@
 import classes from './Home.module.css'
-import React, { useState , useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import TopBar from '../../Components/TopBar/TopBar'
 import Events from '../../Components/Events/index'
 import Menu from '../../Components/Menu/Menu'
@@ -8,44 +8,40 @@ import Meetings from '../../Components/Meetings/'
 import AnimatedButton from '../../Components/Buttons/AnimatedButton'
 import Hero from '../../Components/Hero/Hero'
 import { getEventList, getEventMeetings, getMenuList } from '../../Api/APIs'
+import {GlobalContext} from '../../Context/GlobalContext'
 
 const Home = () => {
-    const [eventsList, setEventsList] = useState([])
-    const [menuList, setMenuList] = useState([])
-    // const [eventMeetings, setEventMeetings] = useState([])
-    const [animate,setAnimate] = useState('') 
-    const [selectedEvent,setSelectedEvent] = useState('') 
-    const [page,setPage] = useState('home') //home or events
+    // const GlobalCont = useContext(GlobalContext)
 
     useEffect(() => {   
         getData()
     },[])   
     
     const getData = async () => {
-        setEventsList(await getEventList()) 
-        setMenuList(await getMenuList(page))
+        await getEventList()
+        // await getMenuList(page) //TODO
         // setEventMeetings(await getEventMeetings(1))
     }
     
     const TopBarClickHandler = () => {
-        setAnimate('first')
-        setSelectedEvent('') //set it to the selected event by default the first one from the api
-        setPage(('events'))
+        // setAnimate('first')
+        // setSelectedEvent('') //set it to the selected event by default the first one from the api
+        // setPage(('events'))
     }
 
     return (
         <div className={classes.container}>
-            <TopBar title={'MarketPlace'} animated={animate} clicked={() => TopBarClickHandler() } />
-            <Hero animated={animate}/>
+            <TopBar title={'MarketPlace'}  clicked={() => TopBarClickHandler() } />
+             <Hero />
             <div className={classes.pageContentContainer}>
                 <div className={classes.menuContainer}>
-                    <Menu  menuList={menuList}/>
+                    <Menu />
                 </div>
                 <div className={classes.contentContainer}>
-                    <AnimatedButton  animated={animate}/>
+                    <AnimatedButton />
                     <PrimaryTitle title='Featured Meetings'/>
-                    <Meetings animated={animate} />
-                    <Events eventsList={eventsList} page={page}/>
+                    <Meetings  />
+                    <Events />
                 </div>
             </div>
         </div>

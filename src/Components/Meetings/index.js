@@ -1,7 +1,12 @@
-import React from 'react'
+import React,{useContext} from 'react'
+import {GlobalContext} from '../../Context/GlobalContext'
+
 import Meeting from './Meeting'
 
-const Meetings = ({animated}) => {
+const Meetings = () => {
+    const GlobalCont = useContext(GlobalContext)
+    const animated = GlobalCont.values.animate
+
     const animateDisplay = animated === 'first' 
     const animateHide = animated === 'second' 
     const styles = {
