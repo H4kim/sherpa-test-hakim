@@ -1,6 +1,7 @@
 import React,{useContext,useEffect} from 'react'
 import { getEventMeetings } from '../../Api/APIs'
 import {GlobalContext} from '../../Context/GlobalContext'
+import { ANIMATION_STEPS } from '../../Utils/Constants'
 
 import Meeting from './Meeting'
 
@@ -8,8 +9,8 @@ const Meetings = () => {
     const GlobalCont = useContext(GlobalContext)
     const {animated, meetingsList,selectedEvent} = GlobalCont.values
 
-    const animateDisplay = animated === 'first' 
-    const animateHide = animated === 'second' 
+    const animateDisplay = animated === ANIMATION_STEPS.step1 
+    const animateHide = animated === ANIMATION_STEPS.step2
     const styles = {
         container: {
             display : 'flex',

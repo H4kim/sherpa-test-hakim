@@ -1,12 +1,13 @@
 import React, {useContext} from 'react'
 import {GlobalContext} from '../../Context/GlobalContext'
+import { ANIMATION_STEPS } from '../../Utils/Constants'
 
 const Hero = () => {
     const GlobalCont = useContext(GlobalContext)
     const animated = GlobalCont.values.animate
     
-    const animateDisplay = animated === 'first' 
-    const animateHide = animated === 'second' 
+    const animateDisplay = animated === ANIMATION_STEPS.step1
+    const animateHide = animated === ANIMATION_STEPS.step2
     const styles={
         container: {
             width:'100vw',

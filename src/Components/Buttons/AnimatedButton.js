@@ -2,12 +2,13 @@
 import React,{useContext} from 'react'
 import {GlobalContext} from '../../Context/GlobalContext'
 import { Button } from 'react-bootstrap';
+import {  ANIMATION_STEPS } from '../../Utils/Constants';
 
 const AnimatedButton = () => {
     const GlobalCont = useContext(GlobalContext)
     const animated = GlobalCont.values.animate
-    const AnimateLeft = animated === 'first'
-    const AnimateRight = animated === 'second'
+    const AnimateLeft = animated === ANIMATION_STEPS.step1
+    const AnimateRight = animated === ANIMATION_STEPS.step2
 
     const styles = {
         container : {
@@ -20,7 +21,7 @@ const AnimatedButton = () => {
             zIndex:'10'
         },
         animated : {
-           transform: AnimateLeft ? 'translateX(-600px)' : AnimateRight ? 'translateX(600px)' : null,
+           transform: AnimateLeft ? 'translateX(-600px)' : AnimateRight ? 'translateX(0)' : null,
 
         }
     }

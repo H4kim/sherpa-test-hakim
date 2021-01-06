@@ -1,6 +1,7 @@
 import React,{useContext,useEffect} from 'react'
 import { getEventList } from '../../Api/APIs'
 import {GlobalContext} from '../../Context/GlobalContext'
+import { ANIMATION_STEPS, PAGE_CONTEXT } from '../../Utils/Constants'
 
 import Event from './Event'
 const Events = (props) => {
@@ -36,7 +37,7 @@ const Events = (props) => {
 
 
     const eventSelectHandler = (id) => {
-        GlobalCont.updateValues({selectedEvent :  id, page:'home', animate:'seconde'})
+        GlobalCont.updateValues({selectedEvent :  id, page: PAGE_CONTEXT.home , animate:ANIMATION_STEPS.step2})
     }
     const renderEvents = () => {
         if(eventsList.length > 0) {

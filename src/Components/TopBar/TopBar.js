@@ -1,12 +1,13 @@
 import React,{useContext} from 'react'
 import {GlobalContext} from '../../Context/GlobalContext'
+import { ANIMATION_STEPS, PAGE_CONTEXT } from '../../Utils/Constants'
 
 const TopBar = ({title,clicked }) => {
     const GlobalCont = useContext(GlobalContext)
     const animated = GlobalCont.values.animate
 
-    const animateDisplay = animated === 'first' 
-    const animateHide = animated === 'second' 
+    const animateDisplay = animated === ANIMATION_STEPS.step1
+    const animateHide = animated === ANIMATION_STEPS.step2
     const styles = {
         container : {
             backgroundColor: '#eaeae8',
@@ -23,7 +24,7 @@ const TopBar = ({title,clicked }) => {
             fontWeight:'500'
         },
         animated : {
-            transform: animateDisplay ? 'scaleY(2)' : animateHide ? 'scaleY(-2)' : null,
+            transform: animateDisplay ? 'scaleY(2)' : animateHide ? 'scaleY(1)' : null,
             transformOrigin: 'top',
          },
         textAnimated: {
@@ -33,7 +34,7 @@ const TopBar = ({title,clicked }) => {
     }
 
     const TopBarClickHandler = () => {
-        GlobalCont.updateValues({animate :  'first' , page : 'events' })
+        GlobalCont.updateValues({animate :  ANIMATION_STEPS.step1 , page : PAGE_CONTEXT.events })
     }
     return (
         <div style={{...styles.container,...styles.animated}} onClick={() => TopBarClickHandler()}>
