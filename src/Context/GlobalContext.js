@@ -14,7 +14,8 @@ export const GlobalContext = createContext({
 const GlobalContextProvider = (props) => {
     const [eventsList, setEventsList] = useState([])
     const [menuList, setMenuList] = useState([])
-    const [selectedEvent,setSelectedEvent] = useState('') 
+    const [meetingsList, setMeetingsList] = useState([])
+    const [selectedEvent,setSelectedEvent] = useState('1') 
     const [page,setPage] = useState('home') //home or events 
     const [animate,setAnimate] = useState('') 
 
@@ -25,6 +26,7 @@ const GlobalContextProvider = (props) => {
         selectedEvent,
         page,
         animate,
+        meetingsList
     }
 
     const updateValues = (data) => {
@@ -33,6 +35,7 @@ const GlobalContextProvider = (props) => {
         if(data.selectedEvent) setSelectedEvent(data.selectedEvent)
         if(data.page) setPage(data.page)
         if(data.animate) setAnimate(data.animate)
+        if(data.meetingsList) setMeetingsList(data.meetingsList)
     }
 
     return(

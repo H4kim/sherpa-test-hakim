@@ -6,7 +6,6 @@ import Event from './Event'
 const Events = (props) => {
     const GlobalCont = useContext(GlobalContext)
     const {page,eventsList , animate} = GlobalCont.values
-    console.log(page, eventsList)
     const styles = {
         container: {
             display : 'flex',
@@ -27,21 +26,20 @@ const Events = (props) => {
     }
 
     useEffect(() => {
-        // GlobalCont.updateValues({eventsList :  getData() })
         async function getData() {
             const data = await getEventList()
             GlobalCont.updateValues({eventsList :  data })
         } 
         getData()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
 
     const eventSelectHandler = (id) => {
-        // update selected event in contextAPI
+        GlobalCont.updateValues({selectedEvent :  id, page:'home', animate:'seconde'})
     }
     const renderEvents = () => {
         if(eventsList.length > 0) {
-            console.log('x')
             return eventsList.map(cur => {
                 return <Event key={cur.id} page={page}  data={cur} animated={animate} clicked={() => eventSelectHandler(cur.id)}   />
             })

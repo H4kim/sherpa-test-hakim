@@ -1,4 +1,5 @@
-import React,{useContext} from 'react'
+import React,{useContext,useEffect} from 'react'
+import { getMenuList } from '../../Api/APIs';
 import {GlobalContext} from '../../Context/GlobalContext'
 import PrimaryButton from '../Buttons/PrimaryButton';
 
@@ -34,6 +35,15 @@ const Menu = () => {
             marginBottom:'1rem',
         }
     }
+
+    useEffect(() => {
+        async function getData() {
+            const data = await getMenuList(GlobalCont.values.page)
+            GlobalCont.updateValues({menuList :  data })
+        } 
+        getData()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     const renderListItems = () => {
         return menuList.map((cur,i) => {

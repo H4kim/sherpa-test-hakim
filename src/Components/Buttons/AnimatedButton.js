@@ -6,7 +6,6 @@ import { Button } from 'react-bootstrap';
 const AnimatedButton = () => {
     const GlobalCont = useContext(GlobalContext)
     const animated = GlobalCont.values.animate
-    console.log(animated)
     const AnimateLeft = animated === 'first'
     const AnimateRight = animated === 'second'
 

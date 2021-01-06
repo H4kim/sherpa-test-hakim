@@ -19,9 +19,9 @@ export const getEvent = async (id) => {
     }
 } 
 
-export const getEventMeetings = async (id) => {
+export const getEventMeetings = async (eventId) => {
     try {
-        const data = await Axios.get(`${GET_EVENTS_LIST}/${id}/meetings`)
+        const data = await Axios.get(`${GET_EVENTS_LIST}/${eventId}/meetings`)
         return data.data
     }catch(error) {
         console.log(error)

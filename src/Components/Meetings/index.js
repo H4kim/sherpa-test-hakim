@@ -1,11 +1,12 @@
-import React,{useContext} from 'react'
+import React,{useContext,useEffect} from 'react'
+import { getEventMeetings } from '../../Api/APIs'
 import {GlobalContext} from '../../Context/GlobalContext'
 
 import Meeting from './Meeting'
 
 const Meetings = () => {
     const GlobalCont = useContext(GlobalContext)
-    const animated = GlobalCont.values.animate
+    const {animated, meetingsList,selectedEvent} = GlobalCont.values
 
     const animateDisplay = animated === 'first' 
     const animateHide = animated === 'second' 
@@ -22,16 +23,27 @@ const Meetings = () => {
             opacity:animateDisplay ? '0' : animateHide ? '1' : null,
          }
     }
+
+    useEffect(() => {
+        async function getData() {
+            const data = await getEventMeetings(selectedEvent)
+            GlobalCont.updateValues({meetingsList :  data })
+        } 
+        getData()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [selectedEvent])
+
+    const renderMeetings = () => {
+        if(meetingsList.length > 0) {
+            return meetingsList.map(cur => {
+                return <Meeting key={cur.start} content={cur}   />
+            })
+        }
+    }
+    
     return (
         <div  style={{...styles.container,...styles.animated}}>
-            <Meeting />
-            <Meeting />
-            <Meeting />
-            <Meeting />
-            <Meeting />
-            <Meeting />
-            <Meeting />
-            <Meeting />
+            {renderMeetings()}
         </div>
     )
 }
