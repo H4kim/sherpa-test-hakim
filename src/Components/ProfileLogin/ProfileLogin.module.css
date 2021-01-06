@@ -1,0 +1,13 @@
+.container {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  background-color: rgba(128, 128, 128, 0.555);
+  z-index: 1000;
+  position: absolute;
+  top: 2rem;
+  right: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

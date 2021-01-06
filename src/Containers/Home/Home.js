@@ -7,12 +7,14 @@ import PrimaryTitle from '../../Components/Titles/PrimaryTitle'
 import Meetings from '../../Components/Meetings/'
 import AnimatedButton from '../../Components/Buttons/AnimatedButton'
 import Hero from '../../Components/Hero/Hero'
+import ProfileLogin from '../../Components/ProfileLogin/ProfileLogin'
 
 const Home = () => {
     return (
         <div className={classes.container}>
             <TopBar title={'MarketPlace'}  />
              <Hero />
+             <ProfileLogin />
             <div className={classes.pageContentContainer}>
                 <div className={classes.menuContainer}>
                     <Menu />
