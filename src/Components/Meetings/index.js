@@ -7,7 +7,7 @@ import Meeting from './Meeting'
 
 const Meetings = () => {
     const GlobalCont = useContext(GlobalContext)
-    const {animated, meetingsList,selectedEvent} = GlobalCont.values
+    const {animated, meetingsList,selectedEvent,page} = GlobalCont.values
 
     const animateDisplay = animated === ANIMATION_STEPS.step1 
     const animateHide = animated === ANIMATION_STEPS.step2
@@ -22,6 +22,7 @@ const Meetings = () => {
         },
         animated : {
             opacity:animateDisplay ? '0' : animateHide ? '1' : null,
+            visibility: page === 'events' ? 'hidden' : 'visible'
          }
     }
 
